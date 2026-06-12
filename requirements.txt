@@ -4,3 +4,10 @@ numpy
 yfinance
 ta
 requests
+numpy
+pandas
+python-telegram-bot
+requests
+ta
+telegram
+yfinance
