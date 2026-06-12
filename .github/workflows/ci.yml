@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  lint:
+    name: Lint & Syntax Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Check syntax (all Python files)
+        run: |
+          python -m py_compile bot.py
+          python -m py_compile scanner.py
+          python -m py_compile fetchers.py
+          python -m py_compile scorer.py
+          python -m py_compile state.py
+          python -m py_compile alerts.py
+          python -m py_compile config.py
+          echo "All files passed syntax check ✅"
+
+      - name: Run import checks
+        run: |
+          python -c "import config; import state; import scorer; import fetchers; import alerts; print('All imports OK ✅')"
+        env:
+          TELEGRAM_BOT_TOKEN: "placeholder"
+          TELEGRAM_CHAT_ID: ""
+          BIRDEYE_API_KEY: ""
+          GMGN_API_KEY: ""
