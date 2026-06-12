@@ -1,0 +1,123 @@
+=================================================
+REAL-TIME TRIGGER MODE
+=================================================
+
+Do NOT rely on fixed interval scanning.
+
+Avoid:
+
+- Every 1 minute scans
+- Every 5 minute scans
+- Cron-based detection
+
+Instead use:
+
+EVENT-DRIVEN DETECTION
+
+=================================================
+LOGIC
+=================================================
+
+Continuously monitor:
+
+- DEX Screener
+- Birdeye
+- GMGN
+- BubbleMaps
+
+As soon as a token appears or updates:
+
+Recalculate all filters instantly.
+
+=================================================
+TRIGGER CONDITION
+=================================================
+
+When ALL filters pass:
+
+Immediately generate signal.
+
+No waiting for next scan cycle.
+
+=================================================
+STATE ENGINE
+=================================================
+
+Maintain in-memory token database.
+
+Track:
+
+- Market Cap
+- Liquidity
+- Volume
+- Holder Count
+- Holder Growth
+- Buy/Sell Ratio
+- Smart Money Activity
+- BubbleMaps Status
+
+Whenever any metric changes:
+
+Re-evaluate score.
+
+=================================================
+SIGNAL GENERATION
+=================================================
+
+IF
+
+Score >= 85
+
+AND
+
+All security filters pass
+
+AND
+
+All holder filters pass
+
+AND
+
+All smart money filters pass
+
+THEN
+
+Trigger Telegram Alert instantly.
+
+=================================================
+DEDUPLICATION
+=================================================
+
+Only send first alert.
+
+Do not resend unless:
+
+Score improves by 10+
+
+OR
+
+Market Cap increases 50%
+
+OR
+
+Smart Money Inflow increases significantly.
+
+=================================================
+PERFORMANCE
+=================================================
+
+Use async architecture.
+
+Use websocket feeds whenever available.
+
+Fallback to API polling only if websocket unavailable.
+
+Monitor thousands of tokens simultaneously.
+
+=================================================
+OBJECTIVE
+=================================================
+
+The system must discover tokens the moment they satisfy the filter set.
+
+The detection time should depend on data availability from the source, not on a predefined scan interval.

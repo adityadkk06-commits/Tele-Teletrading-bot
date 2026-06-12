@@ -1,13 +1,5 @@
 python-telegram-bot
-pandas
-numpy
-yfinance
-ta
+aiohttp
 requests
-numpy
-pandas
-python-telegram-bot
-requests
-ta
+aiohttp
 telegram
-yfinance
