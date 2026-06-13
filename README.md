@@ -1,6 +1,6 @@
-# Real-Time Token Scanner Bot
+# MEME GEM HUNTER PRO V5
 
-Event-driven crypto token scanner for Telegram.
+Fully automated, production-grade, real-time Meme Coin Discovery Engine.
 
 ## Architecture
 
