@@ -1,5 +1,3 @@
-python-telegram-bot
-aiohttp
-requests
-aiohttp
-telegram
+python-telegram-bot==21.3
+aiohttp==3.9.5
+aiofiles==23.2.1
